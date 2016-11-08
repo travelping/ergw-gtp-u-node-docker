@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 ip netns add upstream
 ip link set dev ens5 netns upstream
 ip -n upstream addr flush dev ens5
