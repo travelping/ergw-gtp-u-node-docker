@@ -1,23 +1,21 @@
 #!/bin/sh
 
-set -e
+ifup() {
+    /sbin/ip link add $1 type vrf table $2
+    /sbin/ip link set dev $1 up
+    /sbin/ip rule add oif $1 table $2
+    /sbin/ip rule add iif $1 table $2
 
-ip netns add upstream
-ip link set dev ens5 netns upstream
-ip -n upstream addr flush dev ens5
-ip -n upstream link set dev ens5 up
-ip -n upstream addr add 10.102.1.4/24 dev ens5
-ip -n upstream route add default via 10.102.1.1
-ip netns exec upstream iptables -t nat -F POSTROUTING
-ip netns exec upstream iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
-# ip netns exec upstream iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1300
-ip netns exec upstream /sbin/sysctl -w net.ipv4.ip_forward=1
+    /sbin/ip link set dev $3 master $1
+    /sbin/ip link set dev $3 up
+    /sbin/ip addr flush dev $3
+    /sbin/ip addr add $4 dev $3
+    /sbin/ip route add table $2 default via $5
+}
 
-ip netns add grx
-ip link set dev ens4 netns grx
-ip -n grx addr flush dev ens4
-ip -n grx link set dev ens4 up
-ip -n grx addr add 10.101.1.4/24 dev ens4
-ip -n grx route add default via 10.101.1.4
+ifup upstream 10 ens5 10.102.1.4/16 10.102.1.1
+ifup grx 20 ens4 10.101.1.4/16 10.101.1.1
+
+/sbin/sysctl -w net.ipv4.ip_forward=1
 
 exit 0
