@@ -2,11 +2,11 @@
  {'ergw-gtp-u-node', []},
 
  {gtp_u_kmod, [
-	       {sockets, [{grx, [{ip, {10,101,1,4}},
+	       {sockets, [{grx, [{ip, {${GTP_U_GRX_IP4_ERLANG}},
                  {netdev, "grx"},
 				 freebind,
 				 %% {netns, "/var/run/netns/grx"},
-				 {routes, [{{10, 180, 0, 0}, 16}]}
+				 {routes, [{{${GTP_U_IP4_ROUTES_ERLANG}]}
 				]}
 			 ]}
 	      ]},
