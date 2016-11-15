@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 export GTP_U_UPSTREAM_TABLE=${GTP_U_UPSTREAM_TABLE:-10}
 export GTP_U_UPSTREAM_DEV=${GTP_U_UPSTREAM_DEV:-ens5}
 export GTP_U_UPSTREAM_IP4=${GTP_U_UPSTREAM_IP4:-"10.102.1.4/16"}
