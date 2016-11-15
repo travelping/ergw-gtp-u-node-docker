@@ -16,4 +16,6 @@ ifup() {
 ifup upstream $GTP_U_UPSTREAM_TABLE $GTP_U_UPSTREAM_DEV $GTP_U_UPSTREAM_IP4 $GTP_U_UPSTREAM_IP4_ROUTE
 ifup grx $GTP_U_GRX_TABLE $GTP_U_GRX_DEV $GTP_U_GRX_IP4 $GTP_U_GRX_IP4_ROUTE
 
+/sbin/sysctl -w net.ipv4.ip_forward=1
+
 exit 0
