@@ -8,7 +8,7 @@ env:
   - BUILDER_IMAGE=grundrausch3n/ergw-docker-build
 
 before_install:
-  - docker pull $BASE_IMAGE
+  - docker pull $BUILDER_IMAGE
 
 script:
   - mkdir artifacts
