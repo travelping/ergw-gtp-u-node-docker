@@ -26,7 +26,7 @@ export GTP_U_GRX_IP4_ROUTE=${GTP_U_GRX_IP4_ROUTE:-"10.101.1.1"}
 export GTP_U_GRX_IP4_ROUTES=${GTP_U_GRX_IP4_ROUTES:-"10.180.0.0/16"}
 
 # GTP-U Config
-export GTP_U_GRX_IP4_ERLANG=`ip_erlang $GTP_U_GRX_IP4`
-export GTP_U_GRX_IP4_ROUTES_ERLANG=`route_erlang $GTP_U_GRX_IP4_ROUTES`
+export GTP_U_GRX_IP4_ERLANG="`ip_erlang $GTP_U_GRX_IP4`"
+export GTP_U_GRX_IP4_ROUTES_ERLANG="`route_erlang $GTP_U_GRX_IP4_ROUTES`"
 
-export GTP_COOKIE="secret"
+export GTP_COOKIE=${GTP_COOKIE:-"secret"}
