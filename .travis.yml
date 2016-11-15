@@ -16,8 +16,7 @@ script:
   - docker run -v `pwd`:/build $BUILDER_IMAGE
     sh -c "
       cd /build;
-      rebar3 compile;
-      rebar3 release;
+      rebar3 as prod release;
     "
   - docker build -t $BUILD_IMAGE . 
 
