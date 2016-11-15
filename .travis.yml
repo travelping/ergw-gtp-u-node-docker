@@ -4,8 +4,8 @@ services:
   - docker
 
 env:
-	- BUILD_IMAGE=grundrausch3n/ergw-gtp-u-node
-	- BUILDER_IMAGE=grundrausch3n/ergw-docker-build
+  - BUILD_IMAGE=grundrausch3n/ergw-gtp-u-node
+  - BUILDER_IMAGE=grundrausch3n/ergw-docker-build
 
 before_install:
   - docker pull $BASE_IMAGE
