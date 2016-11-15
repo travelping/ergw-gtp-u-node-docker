@@ -9,4 +9,4 @@ cat /opt/rel/ergw-gtp-u-node/releases/0.1.0/sys.config.templ | \
 cat /opt/rel/ergw-gtp-u-node/releases/0.1.0/vm.args.templ | \
     envsubst > /opt/rel/ergw-gtp-u-node/releases/0.1.0/vm.args
 
-/opt/rel/ergw-gtp-u-node/releases/bin/ergw-gtp-u-node foreground
+/opt/rel/ergw-gtp-u-node/bin/ergw-gtp-u-node foreground
