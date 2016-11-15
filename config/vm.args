@@ -1,0 +1,6 @@
+-sname ergw-gtp-u-node
+
+-setcookie secret
+
++K true
++A30
