@@ -6,18 +6,12 @@ services:
 env:
   global:
     - BUILD_IMAGE="grundrausch3n/ergw-gtp-u-node"
-    - BUILDER_IMAGE="grundrausch3n/ergw-docker-build"
+    - BUILDER_IMAGE="grundrausch3n/ergw-gtp-u-node-base"
 
 before_install:
   - docker pull $BUILDER_IMAGE
 
 script:
-  - mkdir artifacts
-  - docker run -v `pwd`:/build $BUILDER_IMAGE
-    sh -c "
-      cd /build;
-      rebar3 as prod release;
-    "
   - docker build -t $BUILD_IMAGE . 
 
 after_success:
