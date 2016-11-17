@@ -1,4 +1,4 @@
-FROM grundrausch3n/ergw-gtp-u-base
+FROM grundrausch3n/ergw-gtp-u-node-base
 
 WORKDIR /
 COPY pre-start.sh /config/ergw-gtp-u-node/
